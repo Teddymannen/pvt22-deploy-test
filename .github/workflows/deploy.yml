@@ -3,11 +3,11 @@ name: Git-checkouter
 # Trigger which git action (push, pull_request)
 # in which branch(es) should start the jobs...
 on:
-  push:
+  workflow_run:
+    workflows: [Test]
     branches: [main]
-  pull_request:
-    branches: [main]
-
+    types:
+      - completed
 # jobs to run
 jobs:
   # build, the name of the job, a server to create and auto configure
