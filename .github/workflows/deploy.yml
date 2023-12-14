@@ -4,8 +4,8 @@ name: Git-checkouter
 # in which branch(es) should start the jobs...
 on:
   workflow_run:
-    workflows: [Test]
-    branches: [main]
+    workflows: [ "Test" ]
+    branches: [ "main" ]
     types:
       - completed
 # jobs to run
