@@ -4,14 +4,15 @@ name: Git-checkouter
 # in which branch(es) should start the jobs...
 on:
   workflow_run:
-    workflows: [ "Test" ]
-    branches: [ "main" ]
+    workflows: ["Test"]
+    branches: ["main"]
     types:
       - completed
 # jobs to run
 jobs:
   # build, the name of the job, a server to create and auto configure
   build:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     name: Checkout main to web server
     runs-on: ubuntu-latest
     steps:
